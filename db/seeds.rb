@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
 10.times do
@@ -16,13 +9,13 @@ end
 end
 
 10.times do
-  article= Article.create!(title: Faker::Cannabis.cannabinoid, content: Faker::Lebowski.quote, user_id: Faker::Number.between(1, 10), category_id: Faker::Number.between(1, 5))
+  article= Article.create!(title: Faker::Cannabis.cannabinoid, content: Faker::Lebowski.quote, user_id: Faker::Number.between(User.first.id, User.last.id), category_id: Faker::Number.between(Category.first.id, Category.last.id))
 end
 
 15.times do
-  comment = Comment.create!(content: Faker::HarryPotter.quote, article_id: Faker::Number.between(1, 10),user_id: Faker::Number.between(1, 10))
+  comment = Comment.create!(content: Faker::HarryPotter.quote, article_id: Faker::Number.between(Article.first.id, Article.last.id),user_id: Faker::Number.between(User.first.id, User.last.id))
 end
 
 15.times do
-  like = Like.create!(user_id: Faker::Number.between(1, 10), article_id: Faker::Number.between(1, 10))
+  like = Like.create!(user_id: Faker::Number.between(User.first.id, User.last.id), article_id: Faker::Number.between(Article.first.id, Article.last.id))
 end

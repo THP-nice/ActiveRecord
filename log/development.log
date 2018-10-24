@@ -2371,3 +2371,2365 @@ Migrating to CreateLikes (20181024143534)
   ↳ db/seeds.rb:27
   [1m[35m (50.4ms)[0m  [1m[36mcommit transaction[0m
   ↳ db/seeds.rb:27
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "articles"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (94.4ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "user_id" integer, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (74.3ms)[0m  [1m[35mCREATE  INDEX "index_articles_on_category_id" ON "articles" ("category_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (67.7ms)[0m  [1m[35mCREATE  INDEX "index_articles_on_user_id" ON "articles" ("user_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories"[0m
+  ↳ db/schema.rb:26
+  [1m[35m (73.7ms)[0m  [1m[35mCREATE TABLE "categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:26
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments"[0m
+  ↳ db/schema.rb:32
+  [1m[35m (81.3ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "user_id" integer, "article_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:32
+  [1m[35m (82.8ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_article_id" ON "comments" ("article_id")[0m
+  ↳ db/schema.rb:32
+  [1m[35m (76.1ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  ↳ db/schema.rb:32
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "likes"[0m
+  ↳ db/schema.rb:42
+  [1m[35m (82.7ms)[0m  [1m[35mCREATE TABLE "likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:42
+  [1m[35m (73.9ms)[0m  [1m[35mCREATE  INDEX "index_likes_on_article_id" ON "likes" ("article_id")[0m
+  ↳ db/schema.rb:42
+  [1m[35m (77.7ms)[0m  [1m[35mCREATE  INDEX "index_likes_on_user_id" ON "likes" ("user_id")[0m
+  ↳ db/schema.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:51
+  [1m[35m (56.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:51
+  [1m[35m (57.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (39.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181024143534)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (40.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181024142809),
+(20181024142911),
+(20181024143205),
+(20181024143452);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (82.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-24 20:32:07.492471"], ["updated_at", "2018-10-24 20:32:07.492471"]]
+  ↳ db/schema.rb:13
+  [1m[35m (51.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "articles"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (78.7ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "user_id" integer, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (59.7ms)[0m  [1m[35mCREATE  INDEX "index_articles_on_category_id" ON "articles" ("category_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (57.0ms)[0m  [1m[35mCREATE  INDEX "index_articles_on_user_id" ON "articles" ("user_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories"[0m
+  ↳ db/schema.rb:26
+  [1m[35m (65.1ms)[0m  [1m[35mCREATE TABLE "categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:26
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments"[0m
+  ↳ db/schema.rb:32
+  [1m[35m (74.6ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "user_id" integer, "article_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:32
+  [1m[35m (74.4ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_article_id" ON "comments" ("article_id")[0m
+  ↳ db/schema.rb:32
+  [1m[35m (82.3ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  ↳ db/schema.rb:32
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "likes"[0m
+  ↳ db/schema.rb:42
+  [1m[35m (81.9ms)[0m  [1m[35mCREATE TABLE "likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:42
+  [1m[35m (84.7ms)[0m  [1m[35mCREATE  INDEX "index_likes_on_article_id" ON "likes" ("article_id")[0m
+  ↳ db/schema.rb:42
+  [1m[35m (82.8ms)[0m  [1m[35mCREATE  INDEX "index_likes_on_user_id" ON "likes" ("user_id")[0m
+  ↳ db/schema.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:51
+  [1m[35m (91.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:51
+  [1m[35m (83.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (74.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181024143534)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (49.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181024142809),
+(20181024142911),
+(20181024143205),
+(20181024143452);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (76.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-24 20:32:08.691655"], ["updated_at", "2018-10-24 20:32:08.691655"]]
+  ↳ db/schema.rb:13
+  [1m[35m (52.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2018-10-24 20:32:08.746234"], ["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (48.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Alyce"], ["last_name", "Glover"], ["email", "jeika@turcotte.info"], ["created_at", "2018-10-24 20:32:09.508696"], ["updated_at", "2018-10-24 20:32:09.508696"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (94.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Maxima"], ["last_name", "Kohler"], ["email", "solreichel@mosciski.name"], ["created_at", "2018-10-24 20:32:09.606122"], ["updated_at", "2018-10-24 20:32:09.606122"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (48.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Quincy"], ["last_name", "Ebert"], ["email", "claudio@mann.info"], ["created_at", "2018-10-24 20:32:09.657361"], ["updated_at", "2018-10-24 20:32:09.657361"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (38.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Moshe"], ["last_name", "Cummerata"], ["email", "marian@ratke.co"], ["created_at", "2018-10-24 20:32:09.697579"], ["updated_at", "2018-10-24 20:32:09.697579"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (41.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Tory"], ["last_name", "Price"], ["email", "jordon@effertz.name"], ["created_at", "2018-10-24 20:32:09.740798"], ["updated_at", "2018-10-24 20:32:09.740798"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (46.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Richard"], ["last_name", "Lind"], ["email", "hugojones@mosciskibarton.com"], ["created_at", "2018-10-24 20:32:09.789802"], ["updated_at", "2018-10-24 20:32:09.789802"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (50.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Trinidad"], ["last_name", "Ritchie"], ["email", "dannielle@medhurst.biz"], ["created_at", "2018-10-24 20:32:09.843975"], ["updated_at", "2018-10-24 20:32:09.843975"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (51.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Verla"], ["last_name", "Mosciski"], ["email", "octavio@pfannerstillohara.org"], ["created_at", "2018-10-24 20:32:09.897771"], ["updated_at", "2018-10-24 20:32:09.897771"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (65.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Darrin"], ["last_name", "Shanahan"], ["email", "gustavodoyle@lakinbartoletti.net"], ["created_at", "2018-10-24 20:32:09.965402"], ["updated_at", "2018-10-24 20:32:09.965402"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (47.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Nenita"], ["last_name", "Spinka"], ["email", "keshia@howell.org"], ["created_at", "2018-10-24 20:32:10.015637"], ["updated_at", "2018-10-24 20:32:10.015637"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (54.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "blunt wrap"], ["created_at", "2018-10-24 20:32:10.077324"], ["updated_at", "2018-10-24 20:32:10.077324"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (63.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "top shelf"], ["created_at", "2018-10-24 20:32:10.143578"], ["updated_at", "2018-10-24 20:32:10.143578"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (72.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "dank"], ["created_at", "2018-10-24 20:32:10.218346"], ["updated_at", "2018-10-24 20:32:10.218346"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (71.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "top shelf"], ["created_at", "2018-10-24 20:32:10.291898"], ["updated_at", "2018-10-24 20:32:10.291898"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (74.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "wake and bake"], ["created_at", "2018-10-24 20:32:10.368132"], ["updated_at", "2018-10-24 20:32:10.368132"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (64.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabidivarin"], ["content", "Mind if I do a J?"], ["user_id", 6], ["category_id", 3], ["created_at", "2018-10-24 20:32:10.458539"], ["updated_at", "2018-10-24 20:32:10.458539"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (63.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabicyclol"], ["content", "Calmer than you are."], ["user_id", 10], ["category_id", 5], ["created_at", "2018-10-24 20:32:10.524594"], ["updated_at", "2018-10-24 20:32:10.524594"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (62.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabidivarin"], ["content", "You want a toe? I can get you a toe, believe me. There are ways, Dude. You don't wanna know about it, believe me."], ["user_id", 9], ["category_id", 1], ["created_at", "2018-10-24 20:32:10.591198"], ["updated_at", "2018-10-24 20:32:10.591198"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (54.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mArticle Create (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabinolic Acid"], ["content", "Look, let me explain something to you. I'm not Mr. Lebowski. You're Mr. Lebowski. I'm the Dude."], ["user_id", 7], ["category_id", 3], ["created_at", "2018-10-24 20:32:10.648592"], ["updated_at", "2018-10-24 20:32:10.648592"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (52.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Tetrahydrocannabivarin"], ["content", "I mean, say what you want about the tenets of National Socialism, Dude, at least it's an ethos."], ["user_id", 6], ["category_id", 1], ["created_at", "2018-10-24 20:32:10.707089"], ["updated_at", "2018-10-24 20:32:10.707089"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (89.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabigerol"], ["content", "I mean, say what you want about the tenets of National Socialism, Dude, at least it's an ethos."], ["user_id", 6], ["category_id", 4], ["created_at", "2018-10-24 20:32:10.800935"], ["updated_at", "2018-10-24 20:32:10.800935"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (45.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabidiolic Acid"], ["content", "Look, let me explain something to you. I'm not Mr. Lebowski. You're Mr. Lebowski. I'm the Dude."], ["user_id", 1], ["category_id", 1], ["created_at", "2018-10-24 20:32:10.850950"], ["updated_at", "2018-10-24 20:32:10.850950"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (52.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabinol"], ["content", "Eight-year-olds, Dude."], ["user_id", 7], ["category_id", 4], ["created_at", "2018-10-24 20:32:10.906527"], ["updated_at", "2018-10-24 20:32:10.906527"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (55.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabidiolic Acid"], ["content", "Calmer than you are."], ["user_id", 8], ["category_id", 1], ["created_at", "2018-10-24 20:32:10.965126"], ["updated_at", "2018-10-24 20:32:10.965126"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (55.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Tetrahydrocannabivarin"], ["content", "Oh, the usual. I bowl. Drive around. The occasional acid flashback."], ["user_id", 7], ["category_id", 1], ["created_at", "2018-10-24 20:32:11.023693"], ["updated_at", "2018-10-24 20:32:11.023693"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (54.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Of course it is happening inside your head, Harry, but why on earth should that mean that it is not real?"], ["user_id", 10], ["article_id", 7], ["created_at", "2018-10-24 20:32:11.088517"], ["updated_at", "2018-10-24 20:32:11.088517"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (76.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.6ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "You're a wizard, Harry."], ["user_id", 2], ["article_id", 7], ["created_at", "2018-10-24 20:32:11.168375"], ["updated_at", "2018-10-24 20:32:11.168375"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (72.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Never trust anything that can think for itself if you can't see where it keeps its brain."], ["user_id", 7], ["article_id", 5], ["created_at", "2018-10-24 20:32:11.244221"], ["updated_at", "2018-10-24 20:32:11.244221"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (85.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "It’s wingardium leviOsa, not leviosAH."], ["user_id", 10], ["article_id", 1], ["created_at", "2018-10-24 20:32:11.332912"], ["updated_at", "2018-10-24 20:32:11.332912"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (71.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Words are in my not-so-humble opinion, the most inexhaustible form of magic we have, capable both of inflicting injury and remedying it."], ["user_id", 9], ["article_id", 1], ["created_at", "2018-10-24 20:32:11.407386"], ["updated_at", "2018-10-24 20:32:11.407386"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (64.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Harry, suffering like this proves you are still a man! This pain is part of being human...the fact that you can feel pain like this is your greatest strength."], ["user_id", 3], ["article_id", 2], ["created_at", "2018-10-24 20:32:11.475230"], ["updated_at", "2018-10-24 20:32:11.475230"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (71.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "You're a wizard, Harry."], ["user_id", 4], ["article_id", 1], ["created_at", "2018-10-24 20:32:11.549896"], ["updated_at", "2018-10-24 20:32:11.549896"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (63.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "It is the unknown we fear when we look upon death and darkness, nothing more."], ["user_id", 5], ["article_id", 7], ["created_at", "2018-10-24 20:32:11.616504"], ["updated_at", "2018-10-24 20:32:11.616504"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (121.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "No story lives unless someone wants to listen. The stories we love best do live in us forever. So whether you come back by page or by the big screen, Hogwarts will always be there to welcome you home."], ["user_id", 9], ["article_id", 8], ["created_at", "2018-10-24 20:32:11.740671"], ["updated_at", "2018-10-24 20:32:11.740671"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (63.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "No story lives unless someone wants to listen. The stories we love best do live in us forever. So whether you come back by page or by the big screen, Hogwarts will always be there to welcome you home."], ["user_id", 5], ["article_id", 7], ["created_at", "2018-10-24 20:32:11.806814"], ["updated_at", "2018-10-24 20:32:11.806814"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (66.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "No story lives unless someone wants to listen. The stories we love best do live in us forever. So whether you come back by page or by the big screen, Hogwarts will always be there to welcome you home."], ["user_id", 9], ["article_id", 2], ["created_at", "2018-10-24 20:32:11.875736"], ["updated_at", "2018-10-24 20:32:11.875736"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (57.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Never trust anything that can think for itself if you can't see where it keeps its brain."], ["user_id", 8], ["article_id", 4], ["created_at", "2018-10-24 20:32:11.936476"], ["updated_at", "2018-10-24 20:32:11.936476"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (58.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.5ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Of course it is happening inside your head, Harry, but why on earth should that mean that it is not real?"], ["user_id", 9], ["article_id", 2], ["created_at", "2018-10-24 20:32:11.998451"], ["updated_at", "2018-10-24 20:32:11.998451"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (55.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Harry, suffering like this proves you are still a man! This pain is part of being human...the fact that you can feel pain like this is your greatest strength."], ["user_id", 6], ["article_id", 7], ["created_at", "2018-10-24 20:32:12.057542"], ["updated_at", "2018-10-24 20:32:12.057542"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (54.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Words are in my not-so-humble opinion, the most inexhaustible form of magic we have, capable both of inflicting injury and remedying it."], ["user_id", 3], ["article_id", 2], ["created_at", "2018-10-24 20:32:12.116112"], ["updated_at", "2018-10-24 20:32:12.116112"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (113.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.6ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 3], ["user_id", 9], ["created_at", "2018-10-24 20:32:12.242064"], ["updated_at", "2018-10-24 20:32:12.242064"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (35.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.3ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 6], ["user_id", 5], ["created_at", "2018-10-24 20:32:12.280501"], ["updated_at", "2018-10-24 20:32:12.280501"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (41.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.5ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 7], ["user_id", 1], ["created_at", "2018-10-24 20:32:12.323822"], ["updated_at", "2018-10-24 20:32:12.323822"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (38.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.3ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 1], ["user_id", 6], ["created_at", "2018-10-24 20:32:12.363851"], ["updated_at", "2018-10-24 20:32:12.363851"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (39.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.3ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 4], ["user_id", 9], ["created_at", "2018-10-24 20:32:12.405500"], ["updated_at", "2018-10-24 20:32:12.405500"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (38.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.7ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 5], ["user_id", 9], ["created_at", "2018-10-24 20:32:12.447888"], ["updated_at", "2018-10-24 20:32:12.447888"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (96.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.7ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 7], ["user_id", 2], ["created_at", "2018-10-24 20:32:12.548537"], ["updated_at", "2018-10-24 20:32:12.548537"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (37.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.3ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 5], ["user_id", 2], ["created_at", "2018-10-24 20:32:12.588777"], ["updated_at", "2018-10-24 20:32:12.588777"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (40.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.3ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 7], ["user_id", 8], ["created_at", "2018-10-24 20:32:12.630501"], ["updated_at", "2018-10-24 20:32:12.630501"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (92.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.5ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 4], ["user_id", 4], ["created_at", "2018-10-24 20:32:12.724880"], ["updated_at", "2018-10-24 20:32:12.724880"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (46.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.4ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 1], ["user_id", 4], ["created_at", "2018-10-24 20:32:12.773025"], ["updated_at", "2018-10-24 20:32:12.773025"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (39.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.3ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 3], ["user_id", 1], ["created_at", "2018-10-24 20:32:12.813798"], ["updated_at", "2018-10-24 20:32:12.813798"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (48.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.3ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 5], ["user_id", 5], ["created_at", "2018-10-24 20:32:12.864235"], ["updated_at", "2018-10-24 20:32:12.864235"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (56.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.4ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 3], ["user_id", 10], ["created_at", "2018-10-24 20:32:12.923119"], ["updated_at", "2018-10-24 20:32:12.923119"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (49.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.6ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 8], ["user_id", 7], ["created_at", "2018-10-24 20:32:12.974789"], ["updated_at", "2018-10-24 20:32:12.974789"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (104.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "articles"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (130.3ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "user_id" integer, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (74.8ms)[0m  [1m[35mCREATE  INDEX "index_articles_on_category_id" ON "articles" ("category_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (82.9ms)[0m  [1m[35mCREATE  INDEX "index_articles_on_user_id" ON "articles" ("user_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories"[0m
+  ↳ db/schema.rb:26
+  [1m[35m (74.8ms)[0m  [1m[35mCREATE TABLE "categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:26
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments"[0m
+  ↳ db/schema.rb:32
+  [1m[35m (74.5ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "user_id" integer, "article_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:32
+  [1m[35m (75.1ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_article_id" ON "comments" ("article_id")[0m
+  ↳ db/schema.rb:32
+  [1m[35m (66.5ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  ↳ db/schema.rb:32
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "likes"[0m
+  ↳ db/schema.rb:42
+  [1m[35m (68.0ms)[0m  [1m[35mCREATE TABLE "likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:42
+  [1m[35m (74.4ms)[0m  [1m[35mCREATE  INDEX "index_likes_on_article_id" ON "likes" ("article_id")[0m
+  ↳ db/schema.rb:42
+  [1m[35m (85.1ms)[0m  [1m[35mCREATE  INDEX "index_likes_on_user_id" ON "likes" ("user_id")[0m
+  ↳ db/schema.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:51
+  [1m[35m (72.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:51
+  [1m[35m (143.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (61.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181024143534)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (60.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181024142809),
+(20181024142911),
+(20181024143205),
+(20181024143452);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (86.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-24 20:38:42.189288"], ["updated_at", "2018-10-24 20:38:42.189288"]]
+  ↳ db/schema.rb:13
+  [1m[35m (97.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "articles"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (76.5ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "user_id" integer, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (81.2ms)[0m  [1m[35mCREATE  INDEX "index_articles_on_category_id" ON "articles" ("category_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (75.7ms)[0m  [1m[35mCREATE  INDEX "index_articles_on_user_id" ON "articles" ("user_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories"[0m
+  ↳ db/schema.rb:26
+  [1m[35m (75.4ms)[0m  [1m[35mCREATE TABLE "categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments"[0m
+  ↳ db/schema.rb:32
+  [1m[35m (65.6ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "user_id" integer, "article_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:32
+  [1m[35m (65.4ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_article_id" ON "comments" ("article_id")[0m
+  ↳ db/schema.rb:32
+  [1m[35m (67.8ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  ↳ db/schema.rb:32
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "likes"[0m
+  ↳ db/schema.rb:42
+  [1m[35m (65.5ms)[0m  [1m[35mCREATE TABLE "likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:42
+  [1m[35m (57.4ms)[0m  [1m[35mCREATE  INDEX "index_likes_on_article_id" ON "likes" ("article_id")[0m
+  ↳ db/schema.rb:42
+  [1m[35m (75.2ms)[0m  [1m[35mCREATE  INDEX "index_likes_on_user_id" ON "likes" ("user_id")[0m
+  ↳ db/schema.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:51
+  [1m[35m (67.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:51
+  [1m[35m (132.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (63.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181024143534)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (65.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181024142809),
+(20181024142911),
+(20181024143205),
+(20181024143452);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (80.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-24 20:38:43.420471"], ["updated_at", "2018-10-24 20:38:43.420471"]]
+  ↳ db/schema.rb:13
+  [1m[35m (58.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2018-10-24 20:38:43.481810"], ["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (54.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Jean"], ["last_name", "Lockman"], ["email", "karena@gottlieb.com"], ["created_at", "2018-10-24 20:38:43.630584"], ["updated_at", "2018-10-24 20:38:43.630584"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (55.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Gustavo"], ["last_name", "Moore"], ["email", "janita@emmerichhaag.io"], ["created_at", "2018-10-24 20:38:43.688472"], ["updated_at", "2018-10-24 20:38:43.688472"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (63.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Zoe"], ["last_name", "Kemmer"], ["email", "zackdeckow@quitzon.info"], ["created_at", "2018-10-24 20:38:43.754016"], ["updated_at", "2018-10-24 20:38:43.754016"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (58.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Florentina"], ["last_name", "Kulas"], ["email", "warren@bosco.biz"], ["created_at", "2018-10-24 20:38:43.816100"], ["updated_at", "2018-10-24 20:38:43.816100"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (53.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Danilo"], ["last_name", "Adams"], ["email", "jeffereywilkinson@schillermorar.org"], ["created_at", "2018-10-24 20:38:43.871990"], ["updated_at", "2018-10-24 20:38:43.871990"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (54.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Britany"], ["last_name", "Emard"], ["email", "lennyreilly@borerbeier.com"], ["created_at", "2018-10-24 20:38:43.929014"], ["updated_at", "2018-10-24 20:38:43.929014"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (49.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Randy"], ["last_name", "Morar"], ["email", "errol@kovacek.org"], ["created_at", "2018-10-24 20:38:43.980111"], ["updated_at", "2018-10-24 20:38:43.980111"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (54.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Geoffrey"], ["last_name", "Toy"], ["email", "kareemschamberger@lesch.io"], ["created_at", "2018-10-24 20:38:44.037426"], ["updated_at", "2018-10-24 20:38:44.037426"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (56.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Wesley"], ["last_name", "Wunsch"], ["email", "winfredhuel@okeefedaugherty.name"], ["created_at", "2018-10-24 20:38:44.096091"], ["updated_at", "2018-10-24 20:38:44.096091"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (63.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Wiley"], ["last_name", "Kautzer"], ["email", "chloe@schaden.info"], ["created_at", "2018-10-24 20:38:44.163042"], ["updated_at", "2018-10-24 20:38:44.163042"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (55.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "toke"], ["created_at", "2018-10-24 20:38:44.224141"], ["updated_at", "2018-10-24 20:38:44.224141"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (54.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mCategory Create (0.8ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "toke"], ["created_at", "2018-10-24 20:38:44.281389"], ["updated_at", "2018-10-24 20:38:44.281389"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (120.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "dank"], ["created_at", "2018-10-24 20:38:44.405116"], ["updated_at", "2018-10-24 20:38:44.405116"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (54.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "dank"], ["created_at", "2018-10-24 20:38:44.461558"], ["updated_at", "2018-10-24 20:38:44.461558"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (108.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "spliff"], ["created_at", "2018-10-24 20:38:44.571328"], ["updated_at", "2018-10-24 20:38:44.571328"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (47.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabidiol"], ["content", "I mean, say what you want about the tenets of National Socialism, Dude, at least it's an ethos."], ["user_id", 6], ["category_id", 5], ["created_at", "2018-10-24 20:38:44.633286"], ["updated_at", "2018-10-24 20:38:44.633286"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (110.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Tetrahydrocannabinol"], ["content", "I am the walrus"], ["user_id", 3], ["category_id", 2], ["created_at", "2018-10-24 20:38:44.748816"], ["updated_at", "2018-10-24 20:38:44.748816"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (54.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabicyclol"], ["content", "The Dude abides."], ["user_id", 6], ["category_id", 5], ["created_at", "2018-10-24 20:38:44.807365"], ["updated_at", "2018-10-24 20:38:44.807365"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (62.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabicyclic Acid"], ["content", "So then you have no frame of reference here Donny. You're like a child who wonders into the middle of a movie."], ["user_id", 4], ["category_id", 3], ["created_at", "2018-10-24 20:38:44.873896"], ["updated_at", "2018-10-24 20:38:44.873896"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (61.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabidiolic Acid"], ["content", "This is not 'Nam. This is bowling. There are rules."], ["user_id", 5], ["category_id", 4], ["created_at", "2018-10-24 20:38:44.943703"], ["updated_at", "2018-10-24 20:38:44.943703"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (58.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabigerolic Acid"], ["content", "I'm perfectly calm, Dude."], ["user_id", 3], ["category_id", 3], ["created_at", "2018-10-24 20:38:45.007702"], ["updated_at", "2018-10-24 20:38:45.007702"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (52.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mArticle Create (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabidiolic Acid"], ["content", "So then you have no frame of reference here Donny. You're like a child who wonders into the middle of a movie."], ["user_id", 6], ["category_id", 4], ["created_at", "2018-10-24 20:38:45.066114"], ["updated_at", "2018-10-24 20:38:45.066114"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (59.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabidiolic Acid"], ["content", "I don't roll on Shabbos!"], ["user_id", 4], ["category_id", 1], ["created_at", "2018-10-24 20:38:45.133754"], ["updated_at", "2018-10-24 20:38:45.133754"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (60.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabinol"], ["content", "You know, Dude, I myself dabbled in pacifism once. Not in 'Nam of course."], ["user_id", 9], ["category_id", 3], ["created_at", "2018-10-24 20:38:45.200618"], ["updated_at", "2018-10-24 20:38:45.200618"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (59.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Tetrahydrocannabinol"], ["content", "The Dude abides."], ["user_id", 5], ["category_id", 1], ["created_at", "2018-10-24 20:38:45.266128"], ["updated_at", "2018-10-24 20:38:45.266128"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (111.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "No story lives unless someone wants to listen. The stories we love best do live in us forever. So whether you come back by page or by the big screen, Hogwarts will always be there to welcome you home."], ["user_id", 9], ["article_id", 1], ["created_at", "2018-10-24 20:38:45.390990"], ["updated_at", "2018-10-24 20:38:45.390990"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (69.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "If you want to know what a man’s like, take a good look at how he treats his inferiors, not his equals."], ["user_id", 9], ["article_id", 6], ["created_at", "2018-10-24 20:38:45.466574"], ["updated_at", "2018-10-24 20:38:45.466574"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (68.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.5ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "We’ve all got both light and dark inside us. What matters is the part we choose to act on. That’s who we really are."], ["user_id", 5], ["article_id", 6], ["created_at", "2018-10-24 20:38:45.541865"], ["updated_at", "2018-10-24 20:38:45.541865"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (119.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.9ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends."], ["user_id", 2], ["article_id", 5], ["created_at", "2018-10-24 20:38:45.667783"], ["updated_at", "2018-10-24 20:38:45.667783"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (117.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Happiness can be found even in the darkest of times if only one remembers to turn on the light."], ["user_id", 9], ["article_id", 2], ["created_at", "2018-10-24 20:38:45.791282"], ["updated_at", "2018-10-24 20:38:45.791282"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (68.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.8ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "It does not do to dwell on dreams and forget to live."], ["user_id", 2], ["article_id", 7], ["created_at", "2018-10-24 20:38:45.866069"], ["updated_at", "2018-10-24 20:38:45.866069"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (60.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "There are some things you can't share without ending up liking each other, and knocking out a twelve-foot mountain troll is one of them."], ["user_id", 7], ["article_id", 8], ["created_at", "2018-10-24 20:38:45.932603"], ["updated_at", "2018-10-24 20:38:45.932603"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (61.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "I solemnly swear that I am up to no good."], ["user_id", 6], ["article_id", 3], ["created_at", "2018-10-24 20:38:45.999109"], ["updated_at", "2018-10-24 20:38:45.999109"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (61.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Words are in my not-so-humble opinion, the most inexhaustible form of magic we have, capable both of inflicting injury and remedying it."], ["user_id", 8], ["article_id", 5], ["created_at", "2018-10-24 20:38:46.066888"], ["updated_at", "2018-10-24 20:38:46.066888"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (68.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.5ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Dark and difficult times lie ahead. Soon we must all face the choice between what is right and what is easy."], ["user_id", 6], ["article_id", 8], ["created_at", "2018-10-24 20:38:46.143136"], ["updated_at", "2018-10-24 20:38:46.143136"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (67.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "It’s wingardium leviOsa, not leviosAH."], ["user_id", 2], ["article_id", 10], ["created_at", "2018-10-24 20:38:46.220053"], ["updated_at", "2018-10-24 20:38:46.220053"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (116.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "After all this time? Always."], ["user_id", 10], ["article_id", 4], ["created_at", "2018-10-24 20:38:46.340968"], ["updated_at", "2018-10-24 20:38:46.340968"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (62.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Happiness can be found even in the darkest of times if only one remembers to turn on the light."], ["user_id", 4], ["article_id", 5], ["created_at", "2018-10-24 20:38:46.407442"], ["updated_at", "2018-10-24 20:38:46.407442"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (60.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "We’ve all got both light and dark inside us. What matters is the part we choose to act on. That’s who we really are."], ["user_id", 3], ["article_id", 7], ["created_at", "2018-10-24 20:38:46.471960"], ["updated_at", "2018-10-24 20:38:46.471960"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (113.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Things we lose have a way of coming back to us in the end, if not always in the way we expect."], ["user_id", 8], ["article_id", 5], ["created_at", "2018-10-24 20:38:46.590959"], ["updated_at", "2018-10-24 20:38:46.590959"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (59.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.5ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 5], ["user_id", 3], ["created_at", "2018-10-24 20:38:46.661760"], ["updated_at", "2018-10-24 20:38:46.661760"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (56.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.3ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 4], ["user_id", 9], ["created_at", "2018-10-24 20:38:46.721747"], ["updated_at", "2018-10-24 20:38:46.721747"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (54.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.5ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 2], ["user_id", 4], ["created_at", "2018-10-24 20:38:46.779219"], ["updated_at", "2018-10-24 20:38:46.779219"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (45.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.3ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 6], ["user_id", 7], ["created_at", "2018-10-24 20:38:46.828744"], ["updated_at", "2018-10-24 20:38:46.828744"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (47.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.5ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 7], ["user_id", 10], ["created_at", "2018-10-24 20:38:46.881492"], ["updated_at", "2018-10-24 20:38:46.881492"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (102.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.4ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 9], ["user_id", 4], ["created_at", "2018-10-24 20:38:46.988564"], ["updated_at", "2018-10-24 20:38:46.988564"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (53.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.8ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 10], ["user_id", 8], ["created_at", "2018-10-24 20:38:47.046345"], ["updated_at", "2018-10-24 20:38:47.046345"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (55.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.4ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 8], ["user_id", 4], ["created_at", "2018-10-24 20:38:47.106619"], ["updated_at", "2018-10-24 20:38:47.106619"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (51.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.3ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 5], ["user_id", 6], ["created_at", "2018-10-24 20:38:47.161990"], ["updated_at", "2018-10-24 20:38:47.161990"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (89.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.4ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 6], ["user_id", 7], ["created_at", "2018-10-24 20:38:47.255739"], ["updated_at", "2018-10-24 20:38:47.255739"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (53.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.3ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 6], ["user_id", 4], ["created_at", "2018-10-24 20:38:47.313446"], ["updated_at", "2018-10-24 20:38:47.313446"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (44.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.7ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 1], ["user_id", 8], ["created_at", "2018-10-24 20:38:47.362514"], ["updated_at", "2018-10-24 20:38:47.362514"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (45.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.7ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 8], ["user_id", 1], ["created_at", "2018-10-24 20:38:47.413168"], ["updated_at", "2018-10-24 20:38:47.413168"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (52.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.4ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 6], ["user_id", 2], ["created_at", "2018-10-24 20:38:47.471217"], ["updated_at", "2018-10-24 20:38:47.471217"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (55.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (0.4ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 10], ["user_id", 10], ["created_at", "2018-10-24 20:38:47.536037"], ["updated_at", "2018-10-24 20:38:47.536037"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (57.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "articles"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (96.9ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "user_id" integer, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (74.6ms)[0m  [1m[35mCREATE  INDEX "index_articles_on_category_id" ON "articles" ("category_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (75.2ms)[0m  [1m[35mCREATE  INDEX "index_articles_on_user_id" ON "articles" ("user_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories"[0m
+  ↳ db/schema.rb:26
+  [1m[35m (66.2ms)[0m  [1m[35mCREATE TABLE "categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments"[0m
+  ↳ db/schema.rb:32
+  [1m[35m (72.5ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "user_id" integer, "article_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:32
+  [1m[35m (75.2ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_article_id" ON "comments" ("article_id")[0m
+  ↳ db/schema.rb:32
+  [1m[35m (66.1ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  ↳ db/schema.rb:32
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "likes"[0m
+  ↳ db/schema.rb:42
+  [1m[35m (66.0ms)[0m  [1m[35mCREATE TABLE "likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:42
+  [1m[35m (66.6ms)[0m  [1m[35mCREATE  INDEX "index_likes_on_article_id" ON "likes" ("article_id")[0m
+  ↳ db/schema.rb:42
+  [1m[35m (58.1ms)[0m  [1m[35mCREATE  INDEX "index_likes_on_user_id" ON "likes" ("user_id")[0m
+  ↳ db/schema.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:51
+  [1m[35m (57.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:51
+  [1m[35m (66.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (42.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181024143534)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (45.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181024142809),
+(20181024142911),
+(20181024143205),
+(20181024143452);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (61.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-24 20:56:06.131806"], ["updated_at", "2018-10-24 20:56:06.131806"]]
+  ↳ db/schema.rb:13
+  [1m[35m (58.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "articles"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (59.0ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "user_id" integer, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (74.7ms)[0m  [1m[35mCREATE  INDEX "index_articles_on_category_id" ON "articles" ("category_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (66.3ms)[0m  [1m[35mCREATE  INDEX "index_articles_on_user_id" ON "articles" ("user_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories"[0m
+  ↳ db/schema.rb:26
+  [1m[35m (91.5ms)[0m  [1m[35mCREATE TABLE "categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:26
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments"[0m
+  ↳ db/schema.rb:32
+  [1m[35m (57.6ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "user_id" integer, "article_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:32
+  [1m[35m (58.3ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_article_id" ON "comments" ("article_id")[0m
+  ↳ db/schema.rb:32
+  [1m[35m (57.9ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  ↳ db/schema.rb:32
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "likes"[0m
+  ↳ db/schema.rb:42
+  [1m[35m (66.1ms)[0m  [1m[35mCREATE TABLE "likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:42
+  [1m[35m (74.3ms)[0m  [1m[35mCREATE  INDEX "index_likes_on_article_id" ON "likes" ("article_id")[0m
+  ↳ db/schema.rb:42
+  [1m[35m (57.9ms)[0m  [1m[35mCREATE  INDEX "index_likes_on_user_id" ON "likes" ("user_id")[0m
+  ↳ db/schema.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:51
+  [1m[35m (57.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:51
+  [1m[35m (58.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (58.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181024143534)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (40.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181024142809),
+(20181024142911),
+(20181024143205),
+(20181024143452);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (65.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-24 20:56:07.154509"], ["updated_at", "2018-10-24 20:56:07.154509"]]
+  ↳ db/schema.rb:13
+  [1m[35m (53.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2018-10-24 20:56:07.211213"], ["key", "environment"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (47.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:4
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Lauretta"], ["last_name", "Bechtelar"], ["email", "jazmine@rippin.co"], ["created_at", "2018-10-24 20:56:07.322806"], ["updated_at", "2018-10-24 20:56:07.322806"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (49.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:4
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Marlin"], ["last_name", "Will"], ["email", "carollbergstrom@wehnerbednar.biz"], ["created_at", "2018-10-24 20:56:07.374635"], ["updated_at", "2018-10-24 20:56:07.374635"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (56.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:4
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Man"], ["last_name", "Schulist"], ["email", "terrell@marquardtpacocha.name"], ["created_at", "2018-10-24 20:56:07.433105"], ["updated_at", "2018-10-24 20:56:07.433105"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (56.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:4
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Jose"], ["last_name", "Kessler"], ["email", "adelia@adams.name"], ["created_at", "2018-10-24 20:56:07.491703"], ["updated_at", "2018-10-24 20:56:07.491703"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (43.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:4
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Tracy"], ["last_name", "Zboncak"], ["email", "trevor@greenfelderwhite.net"], ["created_at", "2018-10-24 20:56:07.537882"], ["updated_at", "2018-10-24 20:56:07.537882"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (50.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:4
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Juan"], ["last_name", "Kub"], ["email", "lester@hettinger.co"], ["created_at", "2018-10-24 20:56:07.591846"], ["updated_at", "2018-10-24 20:56:07.591846"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (77.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:4
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Deloise"], ["last_name", "Reilly"], ["email", "antonettehane@reilly.info"], ["created_at", "2018-10-24 20:56:07.671802"], ["updated_at", "2018-10-24 20:56:07.671802"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (51.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:4
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Takisha"], ["last_name", "Zulauf"], ["email", "nestorsipes@gleichnergislason.io"], ["created_at", "2018-10-24 20:56:07.725690"], ["updated_at", "2018-10-24 20:56:07.725690"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (108.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:4
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Shella"], ["last_name", "Abshire"], ["email", "dahlia@mcclure.name"], ["created_at", "2018-10-24 20:56:07.837447"], ["updated_at", "2018-10-24 20:56:07.837447"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (50.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:4
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Shaquana"], ["last_name", "Ernser"], ["email", "odajacobi@torpgreenholt.name"], ["created_at", "2018-10-24 20:56:07.891710"], ["updated_at", "2018-10-24 20:56:07.891710"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (49.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:8
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "thc"], ["created_at", "2018-10-24 20:56:07.948289"], ["updated_at", "2018-10-24 20:56:07.948289"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (83.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:8
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "private reserve"], ["created_at", "2018-10-24 20:56:08.033797"], ["updated_at", "2018-10-24 20:56:08.033797"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (46.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:8
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "top shelf"], ["created_at", "2018-10-24 20:56:08.082838"], ["updated_at", "2018-10-24 20:56:08.082838"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (41.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:8
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "top shelf"], ["created_at", "2018-10-24 20:56:08.125643"], ["updated_at", "2018-10-24 20:56:08.125643"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (47.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:8
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "papers"], ["created_at", "2018-10-24 20:56:08.174530"], ["updated_at", "2018-10-24 20:56:08.174530"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (40.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:8
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabidivarin"], ["content", "You want a toe? I can get you a toe, believe me. There are ways, Dude. You don't wanna know about it, believe me."], ["user_id", 8], ["category_id", 4], ["created_at", "2018-10-24 20:56:08.230612"], ["updated_at", "2018-10-24 20:56:08.230612"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (42.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabinol"], ["content", "You are entering a world of pain."], ["user_id", 9], ["category_id", 3], ["created_at", "2018-10-24 20:56:08.277384"], ["updated_at", "2018-10-24 20:56:08.277384"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (46.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabigerolic Acid"], ["content", "I am the walrus"], ["user_id", 5], ["category_id", 1], ["created_at", "2018-10-24 20:56:08.328125"], ["updated_at", "2018-10-24 20:56:08.328125"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (44.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabicyclol"], ["content", "Oh, the usual. I bowl. Drive around. The occasional acid flashback."], ["user_id", 3], ["category_id", 4], ["created_at", "2018-10-24 20:56:08.377382"], ["updated_at", "2018-10-24 20:56:08.377382"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (47.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabinol"], ["content", "I don't roll on Shabbos!"], ["user_id", 3], ["category_id", 4], ["created_at", "2018-10-24 20:56:08.429600"], ["updated_at", "2018-10-24 20:56:08.429600"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (43.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Tetrahydrocannabinolic Acid"], ["content", "Hey, I know that guy. He's a nihilist. Karl Hungus."], ["user_id", 9], ["category_id", 4], ["created_at", "2018-10-24 20:56:08.478934"], ["updated_at", "2018-10-24 20:56:08.478934"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (45.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabidiol"], ["content", "Mark it zero!"], ["user_id", 5], ["category_id", 3], ["created_at", "2018-10-24 20:56:08.527850"], ["updated_at", "2018-10-24 20:56:08.527850"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (44.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabichromic Acid"], ["content", "Obviously, you're not a golfer"], ["user_id", 9], ["category_id", 1], ["created_at", "2018-10-24 20:56:08.577419"], ["updated_at", "2018-10-24 20:56:08.577419"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (46.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Tetrahydrocannabinolic Acid"], ["content", "Eight-year-olds, Dude."], ["user_id", 6], ["category_id", 3], ["created_at", "2018-10-24 20:56:08.628668"], ["updated_at", "2018-10-24 20:56:08.628668"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (44.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "content", "user_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cannabidivarin"], ["content", "Calmer than you are."], ["user_id", 5], ["category_id", 3], ["created_at", "2018-10-24 20:56:08.677335"], ["updated_at", "2018-10-24 20:56:08.677335"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (47.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "I solemnly swear that I am up to no good."], ["user_id", 2], ["article_id", 1], ["created_at", "2018-10-24 20:56:08.742758"], ["updated_at", "2018-10-24 20:56:08.742758"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (40.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "If you want to know what a man’s like, take a good look at how he treats his inferiors, not his equals."], ["user_id", 10], ["article_id", 2], ["created_at", "2018-10-24 20:56:08.792485"], ["updated_at", "2018-10-24 20:56:08.792485"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (51.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "I solemnly swear that I am up to no good."], ["user_id", 8], ["article_id", 2], ["created_at", "2018-10-24 20:56:08.848026"], ["updated_at", "2018-10-24 20:56:08.848026"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (53.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Create (0.5ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "I solemnly swear that I am up to no good."], ["user_id", 6], ["article_id", 8], ["created_at", "2018-10-24 20:56:08.908114"], ["updated_at", "2018-10-24 20:56:08.908114"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (42.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Create (0.5ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "You sort of start thinking anything’s possible if you’ve got enough nerve."], ["user_id", 9], ["article_id", 4], ["created_at", "2018-10-24 20:56:08.957588"], ["updated_at", "2018-10-24 20:56:08.957588"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (42.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Dark and difficult times lie ahead. Soon we must all face the choice between what is right and what is easy."], ["user_id", 7], ["article_id", 8], ["created_at", "2018-10-24 20:56:09.006445"], ["updated_at", "2018-10-24 20:56:09.006445"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (45.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Create (0.5ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "It’s wingardium leviOsa, not leviosAH."], ["user_id", 1], ["article_id", 10], ["created_at", "2018-10-24 20:56:09.058665"], ["updated_at", "2018-10-24 20:56:09.058665"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (50.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends."], ["user_id", 9], ["article_id", 5], ["created_at", "2018-10-24 20:56:09.114191"], ["updated_at", "2018-10-24 20:56:09.114191"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (54.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends."], ["user_id", 6], ["article_id", 6], ["created_at", "2018-10-24 20:56:09.173376"], ["updated_at", "2018-10-24 20:56:09.173376"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (52.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "It’s wingardium leviOsa, not leviosAH."], ["user_id", 8], ["article_id", 6], ["created_at", "2018-10-24 20:56:09.230816"], ["updated_at", "2018-10-24 20:56:09.230816"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (53.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "You sort of start thinking anything’s possible if you’ve got enough nerve."], ["user_id", 2], ["article_id", 2], ["created_at", "2018-10-24 20:56:09.293132"], ["updated_at", "2018-10-24 20:56:09.293132"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (49.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "You're a wizard, Harry."], ["user_id", 3], ["article_id", 5], ["created_at", "2018-10-24 20:56:09.347019"], ["updated_at", "2018-10-24 20:56:09.347019"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (45.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Dark and difficult times lie ahead. Soon we must all face the choice between what is right and what is easy."], ["user_id", 7], ["article_id", 10], ["created_at", "2018-10-24 20:56:09.396862"], ["updated_at", "2018-10-24 20:56:09.396862"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (54.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Create (0.5ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "We’ve all got both light and dark inside us. What matters is the part we choose to act on. That’s who we really are."], ["user_id", 3], ["article_id", 10], ["created_at", "2018-10-24 20:56:09.458062"], ["updated_at", "2018-10-24 20:56:09.458062"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (51.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Happiness can be found even in the darkest of times if only one remembers to turn on the light."], ["user_id", 10], ["article_id", 9], ["created_at", "2018-10-24 20:56:09.516013"], ["updated_at", "2018-10-24 20:56:09.516013"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (52.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mLike Create (0.4ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 6], ["user_id", 1], ["created_at", "2018-10-24 20:56:09.578852"], ["updated_at", "2018-10-24 20:56:09.578852"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (44.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mLike Create (0.3ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 4], ["user_id", 10], ["created_at", "2018-10-24 20:56:09.626392"], ["updated_at", "2018-10-24 20:56:09.626392"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (46.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mLike Create (0.3ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 10], ["user_id", 3], ["created_at", "2018-10-24 20:56:09.676081"], ["updated_at", "2018-10-24 20:56:09.676081"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (46.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mLike Create (0.4ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 1], ["user_id", 5], ["created_at", "2018-10-24 20:56:09.727464"], ["updated_at", "2018-10-24 20:56:09.727464"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (45.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mLike Create (0.3ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 10], ["user_id", 3], ["created_at", "2018-10-24 20:56:09.776102"], ["updated_at", "2018-10-24 20:56:09.776102"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (51.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mLike Create (0.4ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 2], ["user_id", 3], ["created_at", "2018-10-24 20:56:09.830962"], ["updated_at", "2018-10-24 20:56:09.830962"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (50.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mLike Create (0.6ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 6], ["user_id", 3], ["created_at", "2018-10-24 20:56:09.884711"], ["updated_at", "2018-10-24 20:56:09.884711"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (46.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mLike Create (1.1ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 4], ["user_id", 3], ["created_at", "2018-10-24 20:56:09.938205"], ["updated_at", "2018-10-24 20:56:09.938205"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (107.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mLike Create (0.3ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 6], ["user_id", 7], ["created_at", "2018-10-24 20:56:10.051406"], ["updated_at", "2018-10-24 20:56:10.051406"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (46.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mLike Create (0.3ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 7], ["user_id", 4], ["created_at", "2018-10-24 20:56:10.100990"], ["updated_at", "2018-10-24 20:56:10.100990"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (40.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mLike Create (0.4ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 5], ["user_id", 1], ["created_at", "2018-10-24 20:56:10.144100"], ["updated_at", "2018-10-24 20:56:10.144100"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (36.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mLike Create (0.7ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 6], ["user_id", 1], ["created_at", "2018-10-24 20:56:10.185787"], ["updated_at", "2018-10-24 20:56:10.185787"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (39.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mLike Create (0.4ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 3], ["user_id", 4], ["created_at", "2018-10-24 20:56:10.229653"], ["updated_at", "2018-10-24 20:56:10.229653"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (43.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mLike Create (0.3ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 10], ["user_id", 6], ["created_at", "2018-10-24 20:56:10.276420"], ["updated_at", "2018-10-24 20:56:10.276420"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (46.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" ORDER BY "articles"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:20
+  [1m[36mLike Create (0.3ms)[0m  [1m[32mINSERT INTO "likes" ("article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 3], ["user_id", 2], ["created_at", "2018-10-24 20:56:10.325996"], ["updated_at", "2018-10-24 20:56:10.325996"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (48.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:20

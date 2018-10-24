@@ -15,8 +15,8 @@ end
   category = Category.create!(name: Faker::Cannabis.buzzword)
 end
 
-10.times do |index|
-  article= Article.create!(title: "Titre : #{index}", content: "Contenu : #{index}", user_id: Faker::Number.between(1, 10), category_id: Faker::Number.between(1, 5))
+10.times do
+  article= Article.create!(title: Faker::Cannabis.cannabinoid, content: Faker::Lebowski.quote, user_id: Faker::Number.between(1, 10), category_id: Faker::Number.between(1, 5))
 end
 
 15.times do
